@@ -89,7 +89,6 @@ class HTTPClient(object):
 
         self.connect(host,port)
         request = "GET "+path+" HTTP/1.1\r\nHost: "+host+"\r\nAccept: */*\r\nConnection: closed\r\n\r\n"
-      #  request = "GET {} HTTP/1.1\r\nHost: {}\r\nAccept: */*\r\nConnection: closed\r\n\r\n".format(path, host)
         self.sendall(request)
         
         response = self.recvall(self.socket)
@@ -125,7 +124,6 @@ class HTTPClient(object):
 
         self.connect(host,port)
         request = "POST "+str(path)+" HTTP/1.1\r\nHost: "+str(host)+" \r\nContent-Type: "+str(content_type)+"\r\nAccept: */*\r\nContent-Length: "+str(len(args))+"\r\nConnection: closed\r\n\r\n"+str(args)
-        #request = "POST {} HTTP/1.1\r\nHost: {} \r\nContent-Type: {}\r\nAccept: */*\r\nContent-Length: {}\r\nConnection: closed\r\n\r\n{}".format(path, host, content_type, len(args), args)
 
         self.sendall(request)
         
